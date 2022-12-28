@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Termin;
 use Illuminate\Http\Request;
+use App\Http\Resources\TerminResource;
+
 
 class TerminController extends Controller
 {
@@ -14,7 +16,9 @@ class TerminController extends Controller
      */
     public function index()
     {
-        //
+       
+        $termini= Termin::all();
+       return TerminResource::collection($termini);
     }
 
     /**
@@ -46,7 +50,7 @@ class TerminController extends Controller
      */
     public function show(Termin $termin)
     {
-        //
+        return new TerminResource($termin);
     }
 
     /**
@@ -80,6 +84,9 @@ class TerminController extends Controller
      */
     public function destroy(Termin $termin)
     {
-        //
+        $termin->delete();
+        return response()->json('Termin je uspešno otkazan');
     }
+
+    
 }

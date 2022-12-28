@@ -14,7 +14,12 @@ class TerminFactory extends Factory
     public function definition()
     {
         return [
-            //
+          
+            'user_id' => 1,
+            'frizer_id' => 1,
+            'vreme' =>$this->faker->dateTimeThisMonth()->format('H:i:s')            ,
+            'datum' => $this->faker->dateTimeThisMonth()->format('Y-m-d')
+            
         ];
     }
 }

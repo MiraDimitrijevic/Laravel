@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Frizer;
 use Illuminate\Http\Request;
+use App\Http\Resources\FrizerResource;
 
 class FrizerController extends Controller
 {
@@ -14,13 +15,14 @@ class FrizerController extends Controller
      */
     public function index()
     {
-        //
+        $frizeri= Frizer::all();
+       return FrizerResource::collection($frizeri);
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Rsesponse
      */
     public function create()
     {
@@ -46,7 +48,7 @@ class FrizerController extends Controller
      */
     public function show(Frizer $frizer)
     {
-        //
+       return new FrizerResource($frizer);
     }
 
     /**

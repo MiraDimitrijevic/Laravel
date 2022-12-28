@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Termin;
-use Database\Factories\TerminFactory;
+use App\Models\User;
+use Database\Factories\UserFactory;
 
-
-class TerminSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +15,8 @@ class TerminSeeder extends Seeder
      */
     public function run()
     {
-        Termin:: truncate();
-        Termin::factory(3)->create();
+        
+        User:: truncate();
+        User::factory(3)->create();
     }
 }
