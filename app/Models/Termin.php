@@ -13,14 +13,16 @@ class Termin extends Model
     protected $fillable = [
         'datum',
         'vreme',
+        'frizer_id',
+        'user_id'
        
     ];
 
     public function frizer(){
-        return $this->belongsTo(Frizer::class);
+        return $this->belongsTo(Frizer::class, 'frizer_id');
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
