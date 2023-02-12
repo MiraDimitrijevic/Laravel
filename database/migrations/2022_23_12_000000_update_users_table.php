@@ -15,13 +15,10 @@ public function up()
   
 }
 
-
-
-
 public function down()
 {
     Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('votes');
+        $table->dropColumn('pol');
     });
 }
 
